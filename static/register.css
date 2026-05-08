@@ -1,0 +1,154 @@
+/* Add this single rule to login.css for register */
+input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #a52a28;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #dba807;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(219, 168, 7, 0.25);
+    transform: translateY(-2px);
+}
+
+/* login.css - Pure Red/Yellow Theme (No Navbar) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #a52a28 0%, #861614 50%, #bc8032 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    color: #f8eeda;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+}
+
+form {
+    background: rgba(248, 238, 218, 0.98);
+    backdrop-filter: blur(15px);
+    padding: clamp(2rem, 5vw, 3rem);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.4),
+        0 10px 20px rgba(0,0,0,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    border: 2px solid rgba(219, 168, 7, 0.6);
+    transition: all 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.5),
+        0 15px 25px rgba(0,0,0,0.3);
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #a52a28;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #dba807;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(219, 168, 7, 0.25);
+    transform: translateY(-2px);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #dba807 0%, #bc8032 100%);
+    color: #a52a28;
+    border: 2px solid #f8eeda;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(219, 168, 7, 0.5);
+}
+
+p {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #f8eeda;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+p a {
+    color: #dba807;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+p a:hover {
+    color: #f8eeda;
+    text-shadow: 0 0 8px rgba(248, 238, 218, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    form {
+        padding: 2rem;
+        margin: 1rem;
+    }
+}
+
+/* Accessibility */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #f8eeda;
+    outline-offset: 2px;
+}

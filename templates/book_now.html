@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - The Expedition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='book_now.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/dashboard" class="nav-logo">The-Expedition</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="/about_us" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="/contact_us" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/book" class="nav-link nav-btn active">Book Now</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link nav-logout">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BOOK NOW CONTENT -->
+    <div class="container">
+        <h2>Select Your Trip</h2>
+        
+        <div class="booking-grid">
+            <div class="booking-card">
+                <div class="flight-icon">✈️</div>
+                <h3>Roundtrip Flight<br><span>MNL ↔ HAN</span></h3>
+                <div class="price">₱23,394</div>
+                <a href="/fillup/MNL-HAN/23394" class="book-btn">Book Now</a>
+            </div>
+
+            <div class="booking-card">
+                <div class="flight-icon">🚐</div>
+                <h3>Van Transfer</h3>
+                <div class="price">₱12,600</div>
+                <a href="/fillup/VAN/12600" class="book-btn">Book Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Expedition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+
+</head>
+<body>
+    <!-- NAVBAR (Dashboard Style) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/dashboard" class="nav-logo">The-Expedition</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="/about_us" class="nav-link active">About Us</a></li>
+                <li class="nav-item"><a href="/contact_us" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/book" class="nav-link nav-btn">Book Now</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link nav-logout">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ABOUT CONTENT -->
+    <div class="container">
+        <div class="about-card">
+            <h2>About The-Expedition</h2>
+            
+            <div class="about-section">
+                <h3>Travel Agency</h3>
+                <p>
+                    Founded in 2026 by a group of young travellers, aiming to connect people through culture and tradition regardless of their races and perspectives. The agency emphasizes on showcasing the beauty of the world while providing top-tier service, inside and outside the agency. Here at "The Expedition", we believe that cultural exchange is significant may it be through food, religion, and art. It is the agency's top duty to expeditions that are memorable, and knowledge-packed; provide
+immersive, from vibrant cities to scenic provinces.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h3>Mission</h3>
+                <p>
+                    To connect people through meaningful travel experiences that celebrate culture, tradition, and diversity. We aim to deliver exceptional service and curated journeys that inspire discovery, foster understanding, and create lasting memories for every traveler.
+                </p>
+            </div>
+
+            <div class="about-section highlight">
+                <h3>Vision</h3>
+                <p>
+                    To be a leading travel agency recognized for authenticity, innovation, and excellence — empowering travelers to explore the world with purpose, passion, and respect for every destination’s story.
+                </p>
+            </div>
+
+            <a href="/dashboard" class="back-btn">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

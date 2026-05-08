@@ -1,0 +1,261 @@
+/* style.css - Universal for Login/Register/Ticket (Red BG + Yellow Form) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #a52a28 0%, #861614 50%, #bc8032 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===========================================
+   LOGIN / REGISTER FORM STYLES 
+   =========================================== */
+
+h2:not(.ticket h2) {
+    color: #f8eeda;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+}
+
+form {
+    background: rgba(248, 238, 218, 0.98);
+    backdrop-filter: blur(15px);
+    padding: clamp(2rem, 5vw, 3rem);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.4),
+        0 10px 20px rgba(0,0,0,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    border: 2px solid rgba(219, 168, 7, 0.6);
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.5),
+        0 15px 25px rgba(0,0,0,0.3);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #a52a28;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    font-family: inherit;
+    color: #333;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #dba807;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(219, 168, 7, 0.25);
+    transform: translateY(-2px);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #dba807 0%, #bc8032 100%);
+    color: #a52a28;
+    border: 2px solid #f8eeda;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===========================================
+   FLIGHT TICKET STYLES 
+   =========================================== */
+.ticket {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ticket h2 {
+    color: #f8eeda;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.ticket h2::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #dba807, #f8eeda);
+    border-radius: 2px;
+}
+
+.ticket-box {
+    background: rgba(248, 238, 218, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.5),
+        0 15px 30px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,1);
+    border: 3px solid rgba(219, 168, 7, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #a52a28, #861614, #a52a28);
+}
+
+.ticket-box p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(165, 42, 40, 0.2);
+}
+
+.ticket-box p:last-child {
+    border-bottom: none;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.ticket-box p strong {
+    color: #a52a28;
+    font-weight: 700;
+    min-width: 140px;
+}
+
+.ticket-box p:last-child strong {
+    color: #861614;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Continue Button */
+/* Add this single rule to center the Continue button */
+.ticket a {
+    display: block;  /* Changed from inline-block */
+    width: fit-content;  /* Auto width based on content */
+    margin: 0 auto;  /* Perfect center alignment */
+    background: linear-gradient(135deg, #dba807 0%, #bc8032 100%);
+    color: #a52a28;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 2px solid #f8eeda;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(219, 168, 7, 0.5);
+    background: linear-gradient(135deg, #f8eeda 0%, #dba807 100%);
+    color: #861614;
+}
+
+/* Shared link styles for login/register */
+p a {
+    color: #dba807;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+p a:hover {
+    color: #f8eeda;
+    text-shadow: 0 0 8px rgba(248, 238, 218, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .ticket, form {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .ticket-box {
+        padding: 1.5rem;
+    }
+    
+    .ticket-box p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .ticket-box p strong {
+        min-width: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles for ticket */
+@media print {
+    body {
+        background: white !important;
+    }
+    .ticket-box {
+        box-shadow: none;
+        border: 2px solid #a52a28;
+        background: white;
+    }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - The Expedition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/dashboard" class="nav-logo">The-Expedition</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="/about_us" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="/contact_us" class="nav-link active">Contact</a></li>
+                <li class="nav-item"><a href="/book" class="nav-link nav-btn">Book Now</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link nav-logout">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTACT CONTENT -->
+    <div class="container">
+        <div class="contact-card">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📘</div>
+                    <h3>Facebook</h3>
+                    <p>The Expedition</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>TheExpedition@gmail.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Address</h3>
+                    <p>67 Street, Cainta, Rizal</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Telephone</h3>
+                    <p>+123-456-7890</p>
+                </div>
+            </div>
+
+            <a href="/dashboard" class="back-btn">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

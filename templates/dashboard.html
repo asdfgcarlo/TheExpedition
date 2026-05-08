@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/dashboard" class="nav-logo">
+                The-Expedition
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about_us" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact_us" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/book" class="nav-link nav-btn">Book Now</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/" class="nav-link nav-logout">Logout</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <h2 class="header">Welcome, {{ user }}</h2>
+
+    <div class="container">
+        <div class="card">
+            <h3>Flight Offers</h3>
+            <img src="{{ url_for('static', filename='phtohan.jpg') }}" alt="Flight Offers" width="100%">
+        </div>
+    </div>
+</body>
+</html>
