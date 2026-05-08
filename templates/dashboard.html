@@ -49,14 +49,26 @@
             <img src="{{ url_for('static', filename='phtohan.jpg') }}" alt="Flight Offers" width="100%">
         </div>
     </div>
-    <script>
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    <!-- JAVASCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
 
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
+});
 </script>
 </body>
 
