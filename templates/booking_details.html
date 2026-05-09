@@ -43,7 +43,7 @@
                 <td>₱ {{ b.total }}</td>
                 <td>{{ b.booking_ref }}</td>
                 <td>
-                    {% if b.status == 'confirmed' %}
+                    {% if b.status == 'CONFIRMED' %}
                         <span style="color:green; font-weight:bold;">{{ b.status }}</span>
                     {% elif b.status == 'pending' %}
                         <span style="color:orange; font-weight:bold;">{{ b.status }}</span>
