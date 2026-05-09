@@ -151,7 +151,7 @@ def fillup(flight, price):
         pax = int(request.form['pax'])
         total = pax * price
 
-        booking_ref = "FL" + str(random.randint(100000, 999999))
+        booking_ref = "PH" + str(random.randint(100000, 999999))
 
         cursor = mysql.connection.cursor()
         cursor.execute("""
