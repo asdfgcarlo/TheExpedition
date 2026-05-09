@@ -107,6 +107,23 @@ body {
     gap: 4px;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a52a28;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
 .hamburger .bar {
     width: 25px;
     height: 3px;
