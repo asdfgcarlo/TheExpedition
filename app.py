@@ -216,8 +216,12 @@ def logout():
 
 
 @app.route('/booking_details')
-def book_det():
-    return render_template("booking_details.html")
+def booking_details():
+
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    return render_template('booking_details.html')
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
     app.run(debug=True)
