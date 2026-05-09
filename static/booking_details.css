@@ -78,6 +78,27 @@ tbody tr:hover {
     background: #fff3c4;
 }
 
+.top-bar {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    background: #f8eeda;
+    color: #861614;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #dba807;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #dba807;
+    transform: scale(1.05);
+}
+
 /* =========================
    STATUS LABELS
 ========================= */
