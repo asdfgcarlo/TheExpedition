@@ -139,6 +139,12 @@ def book():
 
     return render_template('book_now.html')
 
+@app.route('/itinerary')
+def itinerary():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    return render_template('itinerary.html')
 
 # ---------------- FILL UP + BOOKING ----------------
 @app.route('/fillup/<flight>/<int:price>', methods=['GET', 'POST'])
