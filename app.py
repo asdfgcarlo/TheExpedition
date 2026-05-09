@@ -131,7 +131,7 @@ def admin():
 @app.route('/book')
 def book():
     if 'user_id' not in session:
-        return redirect(url_for('login'))
+        return redirect('/')
 
     return render_template('book_now.html')
 
