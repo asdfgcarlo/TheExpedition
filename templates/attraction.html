@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attractions - The Expedition</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='attraction.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="/dashboard" class="nav-logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" 
+                     alt="Logo" 
+                     class="logo-img">
+
+                <span>The-Expedition</span>
+            </a>
+
+            <ul class="nav-menu">
+
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/about_us" class="nav-link">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/contact_us" class="nav-link">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/book" class="nav-link nav-btn">Book Now</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/" class="nav-link nav-logout">Logout</a>
+                </li>
+
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- PAGE TITLE -->
+    <h1 class="title">Tourist Attractions</h1>
+
+    <!-- GALLERY -->
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='hoan_kiem_lake.jpg') }}" alt="Attraction 1">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='ngoc_son_temple.jpg') }}" alt="Attraction 2">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='hanoi_train_street.jpg') }}" alt="Attraction 3">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='hanoi_old_quarter.jpg') }}" alt="Attraction 4">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='trang_an_landscape_complex.jpg') }}" alt="Attraction 5">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='hoa_lu_ancient_capital.jpg') }}" alt="Attraction 6">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='bai_dinh_pagoda.jpg') }}" alt="Attraction 7">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='ha_long_bay.jpg') }}" alt="Attraction 8">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='my_khe_beach.jpg') }}" alt="Attraction 9">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='marble_mountains.jpg') }}" alt="Attraction 10">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='dragon_bridge.jpg') }}" alt="Attraction 11">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='ba_na_hills.jpg') }}" alt="Attraction 12">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='son_tra_peninsula.jpg') }}" alt="Attraction 13">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='han_market.jpg') }}" alt="Attraction 14">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='hoi_an_ancient_town.jpg') }}" alt="Attraction 15">
+        </div>
+
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='japanese_covered_bridge.jpg') }}" alt="Attraction 16">
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+    });
+
+    </script>
+
+</body>
+</html>

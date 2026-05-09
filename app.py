@@ -233,6 +233,10 @@ def booking_details():
     cursor.close()
 
     return render_template('booking_details.html', bookings=bookings)
+
+@app.route('/attraction')
+def attraction():
+    return render_template('attraction.html')
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
     app.run(debug=True)
