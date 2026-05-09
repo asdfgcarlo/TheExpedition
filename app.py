@@ -214,6 +214,10 @@ def logout():
     return redirect(url_for('login'))
 
 
+
+@app.route('/booking_details')
+def book_det():
+    return render_template("booking_details.html")
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
     app.run(debug=True)
