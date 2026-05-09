@@ -126,7 +126,7 @@ def admin():
     return render_template(
         'admin.html',
         users=users,
-        bookings = bookings
+        bookings = bookings,
         total_users=total_users,
         total_bookings=total_bookings,
         total_income=total_income
