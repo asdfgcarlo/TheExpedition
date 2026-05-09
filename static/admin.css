@@ -32,6 +32,29 @@ body {
     font-weight: 800;
 }
 
+/* HEADER BUTTONS */
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* BOOKING DETAILS BUTTON */
+.details-btn {
+    background: #f8eeda;
+    color: #861614;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 2px solid #dba807;
+}
+
+.details-btn:hover {
+    background: #dba807;
+    transform: scale(1.05);
+}
+
 /* LOGOUT BUTTON */
 .logout-btn {
     background: #dba807;
