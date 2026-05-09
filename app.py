@@ -109,6 +109,9 @@ def admin():
     # ---------------- TOTAL USERS ----------------
     cursor.execute("SELECT COUNT(*) AS total FROM users")
     total_users = cursor.fetchone()['total']
+    # ---------------- BOOKINGS LIST ----------------
+    cursor.execute("SELECT * FROM bookings ORDER BY created_at DESC")
+    bookings = cursor.fetchall()
 
     # ---------------- TOTAL BOOKINGS ----------------
     cursor.execute("SELECT COUNT(*) AS total FROM bookings")
@@ -123,6 +126,7 @@ def admin():
     return render_template(
         'admin.html',
         users=users,
+        bookings = bookings
         total_users=total_users,
         total_bookings=total_bookings,
         total_income=total_income
@@ -221,7 +225,14 @@ def booking_details():
     if 'user_id' not in session:
         return redirect(url_for('login'))
 
-    return render_template('booking_details.html')
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+
+    cursor.execute("SELECT * FROM bookings ORDER BY created_at DESC")
+    bookings = cursor.fetchall()
+
+    cursor.close()
+
+    return render_template('booking_details.html', bookings=bookings)
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
     app.run(debug=True)

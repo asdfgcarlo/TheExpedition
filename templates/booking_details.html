@@ -6,6 +6,49 @@
     <title>Document</title>
 </head>
 <body>
-    im booking details
+    <!-- TABLE -->
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Flight</th>
+                <th>Contact</th>
+                <th>Pax</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Booking Ref</th>
+                <th>Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for b in bookings %}
+            <tr>
+                <td>{{ b.id }}</td>
+                <td>{{ b.user_id }}</td>
+                <td>{{ b.flight }}</td>
+                <td>{{ b.contact }}</td>
+                <td>{{ b.pax }}</td>
+                <td>₱ {{ b.price }}</td>
+                <td>₱ {{ b.total }}</td>
+                <td>{{ b.booking_ref }}</td>
+                <td>
+                    {% if b.status == 'confirmed' %}
+                        <span style="color:green; font-weight:bold;">{{ b.status }}</span>
+                    {% elif b.status == 'pending' %}
+                        <span style="color:orange; font-weight:bold;">{{ b.status }}</span>
+                    {% else %}
+                        <span style="color:red; font-weight:bold;">{{ b.status }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ b.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
