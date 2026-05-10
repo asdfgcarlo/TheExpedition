@@ -195,6 +195,16 @@ body {
     transition: all 0.3s ease;
 }
 
+/* ===========================================
+   CLICKABLE CARD BADGE
+=========================================== */
+.card {
+    position: relative;
+    cursor: pointer;
+}
+
+
+
 .card:hover {
     transform: translateY(-10px);
     box-shadow:
@@ -215,6 +225,45 @@ body {
     border: 4px solid #dba807;
     object-fit: cover;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ===========================================
+   EXPLORE TEXT
+=========================================== */
+.explore-text {
+    text-align: center;
+    width: fit-content;
+    margin: 1.2rem auto 0;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f8eeda;
+    background: linear-gradient(135deg, #dba807, #bc8032);
+    transition: all 0.3s ease;
+    animation: pulseText 1.5s infinite;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* HOVER EFFECT */
+.card:hover .explore-text {
+    color: #a52a28;
+    letter-spacing: 1px;
+}
+
+/* ANIMATION */
+@keyframes pulseText {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* ===========================================
