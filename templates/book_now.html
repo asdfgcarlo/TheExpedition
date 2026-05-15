@@ -9,7 +9,6 @@
 
 </head>
 <body>
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="/dashboard" class="nav-logo">
@@ -31,29 +30,92 @@
         </div>
     </nav>
 
-    <!-- BOOK NOW CONTENT -->
-    <!-- BOOK NOW CONTENT -->
 <div class="container">
     <h2>Available Trip</h2>
     
     <div class="booking-grid">
 
-        <!-- TOUR PACKAGE -->
-        <div class="booking-card">
-            <div class="flight-icon">✈️</div>
+    <!-- TOUR PACKAGE 1 -->
+    <div class="booking-card">
+        <div class="flight-icon">✈️</div>
 
-            <h3>Tour Package<br><span>MNL ↔ HAN</span></h3>
+        <h3>Hanoi Adventure<br><span>MNL ↔ HAN</span></h3>
 
-            <div class="price">₱113,225</div>
+        <div class="price">₱113,225</div>
 
-            <!-- changed link -->
-            <a href="/itinerary" class="book-btn">Book Now</a>
-        </div>
-
+        <a href="{{ url_for('fillup', flight='MNL-HAN', price=flights['MNL-HAN']) }}" class="book-btn">
+    BOOK NOW
+</a>
     </div>
+
+    <!-- TOUR PACKAGE 2 -->
+    <div class="booking-card">
+        <div class="flight-icon">🏝️</div>
+
+        <h3>Maldives Retreat<br><span>MNL ↔ MLE</span></h3>
+
+        <div class="price">₱158,950</div>
+
+        <a href="{{ url_for('fillup', flight='MNL-MLE', price=flights['MNL-MLE']) }}" class="book-btn">
+    BOOK NOW
+</a>
+    </div>
+
+    <!-- TOUR PACKAGE 3 -->
+    <div class="booking-card">
+        <div class="flight-icon">🏯</div>
+
+        <h3>Tokyo Experience<br><span>MNL ↔ NRT</span></h3>
+
+        <div class="price">₱132,780</div>
+
+        <a href="{{ url_for('fillup', flight='MNL-NRT', price=flights['MNL-NRT']) }}" class="book-btn">
+    BOOK NOW
+</a>
+    </div>
+
+    <!-- TOUR PACKAGE 4 -->
+    <div class="booking-card">
+        <div class="flight-icon">🌆</div>
+
+        <h3>Singapore Getaway<br><span>MNL ↔ SIN</span></h3>
+
+        <div class="price">₱64,320</div>
+
+        <a href="{{ url_for('fillup', flight='MNL-SIN', price=flights['MNL-SIN']) }}" class="book-btn">
+    BOOK NOW
+</a>
+    </div>
+
+    <!-- TOUR PACKAGE 5 -->
+    <div class="booking-card">
+        <div class="flight-icon">🏝️</div>
+
+        <h3>Maldives Retreat<br><span>MNL ↔ MLE</span></h3>
+
+        <div class="price">₱158,950</div>
+
+        <a href="{{ url_for('fillup', flight='MNL-MLE', price=flights['MNL-MLE']) }}" class="book-btn">
+    BOOK NOW
+</a>
+    </div>
+    <!-- TOUR PACKAGE 6 -->
+    <div class="booking-card">
+        <div class="flight-icon">🏝️</div>
+
+        <h3>Maldives Retreat<br><span>MNL ↔ MLE</span></h3>
+
+        <div class="price">₱158,950</div>
+
+        <a href="{{ url_for('fillup', flight='MNL-MLE', price=flights['MNL-MLE']) }}" class="book-btn">
+    BOOK NOW
+</a>
+    </div>
+
+</div>
+    
 </div>
 
-    <!-- JAVASCRIPT -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.querySelector('.hamburger');

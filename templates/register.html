@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
 </head>
+
 <body>
+    <div id="vanta-bg"></div>
+
     <div class="auth-container">
         <h2>Register</h2>
 
@@ -20,5 +23,26 @@
 
         <p>Already have an account? <a href="/">Login</a></p>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+    <script>
+        VANTA.CLOUDS
+    ({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        skyColor: 0xd7a968,
+        cloudColor: 0xb15d2d,
+        cloudShadowColor: 0x0,
+        sunColor: 0xffffff,
+        sunGlareColor: 0x1b1919,
+        sunlightColor: 0x0,
+        speed: 0.80
+            })
+    </script>
 </body>
 </html>

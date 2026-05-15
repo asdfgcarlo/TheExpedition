@@ -1,45 +1,72 @@
-/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #a52a28 0%, #861614 50%, #bc8032 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+    background:
+        linear-gradient(rgba(20, 10, 5, 0.45), rgba(20, 10, 5, 0.55)),
+        url("../static/bgfor_expedition.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     min-height: 100vh;
-    padding-top: 100px; /* FIX: navbar space */
+    color: #333;
+    line-height: 1.7;
+
+    padding-top: 120px;
 }
 
-/* ================= NAVBAR ================= */
 .navbar {
-    background: rgba(248, 238, 218, 0.95);
-    backdrop-filter: blur(20px);
+    background: rgba(248, 238, 218, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
     padding: 1rem 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    border-bottom: 3px solid rgba(219, 168, 7, 0.5);
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-bottom: 2px solid rgba(219, 168, 7, 0.6);
 }
 
 .nav-container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 2rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     color: #a52a28;
     font-size: 1.8rem;
     font-weight: 800;
     text-decoration: none;
+}
+
+.nav-logo:hover {
+    color: #861614;
+}
+
+.logo-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -52,21 +79,34 @@ body {
 .nav-link {
     color: #a52a28;
     text-decoration: none;
-    font-weight: 600;
-    padding: 0.6rem 1rem;
-    border-radius: 20px;
-    transition: 0.3s;
+    font-weight: 700;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    background: linear-gradient(135deg, #dba807, #bc8032);
     color: #f8eeda;
+    background: linear-gradient(135deg, #dba807 0%, #bc8032 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(219, 168, 7, 0.4);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, #dba807 0%, #bc8032 100%);
+    color: #f8eeda !important;
 }
 
 .nav-btn {
-    background: linear-gradient(135deg, #dba807, #bc8032);
+    background: linear-gradient(135deg, #dba807 0%, #bc8032 100%);
     color: #a52a28 !important;
+    border: 2px solid #f8eeda;
     font-weight: 700;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(135deg, #f8eeda 0%, #dba807 100%);
+    color: #861614 !important;
 }
 
 .nav-logout {
@@ -74,7 +114,11 @@ body {
     font-weight: 700;
 }
 
-/* HAMBURGER */
+.nav-logout:hover {
+    background: linear-gradient(135deg, #a52a28, #861614);
+    color: #f8eeda !important;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -86,70 +130,68 @@ body {
     width: 25px;
     height: 3px;
     background: #a52a28;
+    border-radius: 2px;
 }
 
-/* ================= CONTAINER ================= */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 120px);
     padding: 20px;
 }
 
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #a52a28;
-    font-size: 1.8rem;
-    font-weight: 800;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
-.logo-img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
-/* ================= CARD ================= */
 .booking-form-card {
     width: 100%;
     max-width: 420px;
-    background: rgba(248, 238, 218, 0.98);
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+
     padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-    border: 2px solid rgba(219, 168, 7, 0.6);
+    border-radius: 24px;
+
+    box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    position: relative;
+    overflow: hidden;
 }
 
-/* HEADER */
+.booking-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+
+    background: linear-gradient(90deg, #a52a28, #861614, #dba807);
+}
+
 .form-header {
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
 .form-header h2 {
-    color: #861614;
-    margin-bottom: 0.5rem;
+    color: #ffffff;
 }
 
 .price-display {
-    background: #a52a28;
-    color: #f8eeda;
+    background: rgba(255, 255, 255, 0.9);
+    color: rgba(165, 42, 40, 0.9);
     padding: 0.8rem;
     border-radius: 10px;
 }
 
-/* FORM */
 .form-group {
     margin-bottom: 1rem;
 }
 
 label {
-    color: #861614;
+    color: #ffffff;
     font-weight: 600;
     display: block;
     margin-bottom: 0.4rem;
@@ -158,9 +200,10 @@ label {
 input {
     width: 100%;
     padding: 0.9rem;
-    border: 2px solid #a52a28;
+    border: 2px solid rgba(219, 168, 7, 0.5);
     border-radius: 10px;
     outline: none;
+    background: rgba(255,255,255,0.9);
 }
 
 input:focus {
@@ -168,49 +211,66 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(219,168,7,0.3);
 }
 
-/* BUTTON */
 button {
     width: 100%;
     padding: 1rem;
     border: none;
     border-radius: 10px;
+
     background: linear-gradient(135deg, #dba807, #bc8032);
     font-weight: 700;
     cursor: pointer;
-    color: #861614;
+    color: #a52a28;
+
+    transition: all 0.3s ease;
 }
 
 button:hover {
     transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(219,168,7,0.4);
 }
 
-/* BACK LINK */
 .back-link {
     display: block;
     margin-top: 1rem;
     text-align: center;
-    color: #861614;
+    color: #ffffff;
     text-decoration: none;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-menu {
-        display: none;
         position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
+        left: -100%;
+        top: 90px;
+
         flex-direction: column;
-        background: rgba(248,238,218,0.98);
-        padding: 2rem;
+        background: rgba(248, 238, 218, 0.98);
+
+        width: 100%;
+        text-align: center;
+
+        padding: 2rem 0;
+        gap: 1.5rem;
+
+        transition: left 0.3s ease;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        border-top: 2px solid rgba(219, 168, 7, 0.6);
     }
 
     .nav-menu.active {
-        display: flex;
+        left: 0;
     }
 
-    .hamburger {
-        display: flex;
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .booking-form-card {
+        padding: 2rem;
     }
 }

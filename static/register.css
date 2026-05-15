@@ -1,4 +1,3 @@
-/* Add this single rule to login.css for register */
 input[type="text"] {
     width: 100%;
     padding: 1rem 1.2rem;
@@ -19,7 +18,6 @@ input[type="text"]:focus {
     transform: translateY(-2px);
 }
 
-/* login.css - Pure Red/Yellow Theme (No Navbar) */
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +26,6 @@ input[type="text"]:focus {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #a52a28 0%, #861614 50%, #bc8032 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,10 +33,29 @@ body {
     align-items: center;
     padding: 20px;
 }
+#vanta-bg 
+{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
-.auth-container {
+.auth-container 
+{
     width: 100%;
     max-width: 400px;
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(10px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 2rem;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 h2 {
@@ -53,31 +69,25 @@ h2 {
 }
 
 form {
-    background: rgba(248, 238, 218, 0.98);
-    backdrop-filter: blur(15px);
+    background: transparent;
     padding: clamp(2rem, 5vw, 3rem);
     border-radius: 20px;
     box-shadow: 
         0 20px 40px rgba(0,0,0,0.4),
         0 10px 20px rgba(0,0,0,0.2),
         inset 0 1px 0 rgba(255,255,255,0.9);
-    border: 2px solid rgba(219, 168, 7, 0.6);
+    border: 2px solid transparent;
     transition: all 0.3s ease;
 }
 
-form:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 30px 60px rgba(0,0,0,0.5),
-        0 15px 25px rgba(0,0,0,0.3);
-}
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
     width: 100%;
     padding: 1rem 1.2rem;
     margin-bottom: 1.5rem;
-    border: 2px solid #a52a28;
+    border: 2px solid transparent;
     border-radius: 12px;
     font-size: 1rem;
     background: rgba(255, 255, 255, 0.95);
@@ -145,7 +155,6 @@ p a:hover {
     }
 }
 
-/* Accessibility */
 input:focus-visible,
 button:focus-visible,
 a:focus-visible {

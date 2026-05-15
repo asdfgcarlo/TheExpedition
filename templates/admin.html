@@ -9,11 +9,11 @@
 
 </head>
 
-<body>
+<body id="vanta-bg">
+
 
 <div class="container">
 
-    <!-- HEADER -->
 <div class="header">
 
     <h1 class="title">Admin Dashboard</h1>
@@ -32,7 +32,6 @@
 
 </div>
 
-    <!-- STATS -->
     <div class="stats">
         <div class="card">
             <h2>Total Users</h2>
@@ -50,7 +49,6 @@
         </div>
     </div>
 
-    <!-- TABLE -->
     <div class="table-container">
         <table>
             <thead>
@@ -76,6 +74,23 @@
     </div>
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.cells.min.js"></script>
+
+<script>
+VANTA.CELLS({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200,
+  minWidth: 200,
+  scale: 1,
+  color1: 0xa52a28,
+  color2: 0xbc8032,
+  size: 5.00
+})
+</script>
 </body>
 </html>

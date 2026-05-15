@@ -7,6 +7,9 @@ import random
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
+# ---------------- FLIGHT PRICES ----------------
+
+
 # ---------------- DB CONFIG ----------------
 app.config['MYSQL_HOST'] = 'sql12.freesqldatabase.com'
 app.config['MYSQL_USER'] = 'sql12825863'
@@ -82,7 +85,7 @@ def dashboard():
     return render_template('dashboard.html', user=session.get('username'))
 
 
-# ---------------- ADMIN (FIXED + RELIABLE) ----------------
+# ---------------- ADMIN ----------------
 @app.route('/admin')
 def admin():
     if 'user_id' not in session:
@@ -126,7 +129,7 @@ def admin():
     return render_template(
         'admin.html',
         users=users,
-        bookings = bookings,
+        bookings=bookings,
         total_users=total_users,
         total_bookings=total_bookings,
         total_income=total_income
@@ -137,20 +140,25 @@ def book():
     if 'user_id' not in session:
         return redirect(url_for('login'))
 
-    return render_template('book_now.html')
+    return render_template('book_now.html', flights=FLIGHTS)
 
-@app.route('/itinerary')
-def itinerary():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-
-    return render_template('itinerary.html')
 
 # ---------------- FILL UP + BOOKING ----------------
+
+FLIGHTS = {
+        "MNL-HAN": 113225, 
+        "MNL-DPS": 89499, 
+        "MNL-NRT": 132780, 
+        "MNL-SIN": 64320, 
+        "MNL-MLE": 158950
+           }
+
 @app.route('/fillup/<flight>/<int:price>', methods=['GET', 'POST'])
 def fillup(flight, price):
     if 'user_id' not in session:
         return redirect(url_for('login'))
+    
+    price = FLIGHTS.get(flight)
 
     if request.method == 'POST':
         contact = request.form['contact']
@@ -180,8 +188,9 @@ def fillup(flight, price):
 
         return redirect(url_for('receipt'))
 
-    return render_template('fillup.html', flight=flight, price=price)
+    price = FLIGHTS.get(flight, price)
 
+    return render_template('fillup.html', flight=flight, price=price)
 
 # ---------------- RECEIPT (SECURE) ----------------
 @app.route('/receipt')

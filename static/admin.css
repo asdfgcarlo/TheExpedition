@@ -1,45 +1,47 @@
-* {
+* 
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
-body {
+body 
+{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: linear-gradient(135deg, #a52a28, #861614, #bc8032);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
-/* CONTAINER */
-.container {
+.container 
+{
     max-width: 1100px;
     margin: auto;
 }
 
-/* HEADER */
-.header {
+.header 
+{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
 }
 
-.title {
+.title 
+{
     color: #f8eeda;
     font-size: 2.5rem;
     font-weight: 800;
 }
 
-/* HEADER BUTTONS */
-.header-buttons {
+.header-buttons 
+{
     display: flex;
     gap: 12px;
 }
 
-/* BOOKING DETAILS BUTTON */
-.details-btn {
+.details-btn 
+{
     background: #f8eeda;
     color: #861614;
     padding: 10px 18px;
@@ -50,13 +52,14 @@ body {
     border: 2px solid #dba807;
 }
 
-.details-btn:hover {
+.details-btn:hover 
+{
     background: #dba807;
     transform: scale(1.05);
 }
 
-/* LOGOUT BUTTON */
-.logout-btn {
+.logout-btn 
+{
     background: #dba807;
     color: #861614;
     padding: 10px 18px;
@@ -66,13 +69,14 @@ body {
     transition: 0.3s;
 }
 
-.logout-btn:hover {
+.logout-btn:hover 
+{
     background: #f8eeda;
     transform: scale(1.05);
 }
 
-/* STATS */
-.stats {
+.stats 
+{
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -80,7 +84,8 @@ body {
     flex-wrap: wrap;
 }
 
-.card {
+.card 
+{
     background: #f8eeda;
     padding: 20px;
     border-radius: 12px;
@@ -90,64 +95,73 @@ body {
     transition: 0.3s;
 }
 
-.card:hover {
+.card:hover 
+{
     transform: translateY(-5px);
 }
 
-.card h2 {
+.card h2 
+{
     color: #861614;
     font-size: 1.2rem;
 }
 
-.card p {
+.card p 
+{
     font-size: 2rem;
     font-weight: bold;
     color: #a52a28;
     margin-top: 10px;
 }
 
-/* INCOME SPECIAL STYLE */
-.income {
+.income 
+{
     background: #dba807;
 }
 
-.income h2 {
+.income h2 
+{
     color: #861614;
 }
 
-.income p {
+.income p 
+{
     color: #861614;
 }
 
-/* TABLE */
-.table-container {
+.table-container 
+{
     background: #f8eeda;
     border-radius: 12px;
     overflow-x: auto;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
-table {
+table 
+{
     width: 100%;
     border-collapse: collapse;
 }
 
-thead {
+thead 
+{
     background: #dba807;
     color: #861614;
 }
 
-th, td {
+th, td 
+{
     padding: 14px;
     text-align: center;
 }
 
-tbody tr:hover {
+tbody tr:hover 
+{
     background: #fff3c4;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 768px) 
+{
     .stats {
         flex-direction: column;
         align-items: center;

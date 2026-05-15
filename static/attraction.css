@@ -1,24 +1,28 @@
-/* ===========================================
-   GLOBAL
-=========================================== */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #a52a28 0%, #861614 50%, #bc8032 100%);
+
+    background:
+        linear-gradient(rgba(20, 10, 5, 0.45), rgba(20, 10, 5, 0.55)),
+        url("../static/bgfor_expedition.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     min-height: 100vh;
     color: #333;
     line-height: 1.7;
+
     padding-top: 120px;
 }
 
-/* ===========================================
-   NAVBAR STYLES
-=========================================== */
 .navbar{
     background: rgba(248, 238, 218, 0.95);
     backdrop-filter: blur(20px);
@@ -114,9 +118,6 @@ body{
     color: #f8eeda !important;
 }
 
-/* ===========================================
-   HAMBURGER MENU
-=========================================== */
 .hamburger{
     display: none;
     flex-direction: column;
@@ -144,9 +145,6 @@ body{
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* ===========================================
-   TITLE
-=========================================== */
 .title{
     text-align: center;
     color: #f8eeda;
@@ -157,9 +155,6 @@ body{
     text-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* ===========================================
-   GALLERY
-=========================================== */
 .gallery{
     max-width: 1400px;
     margin: auto;
@@ -171,18 +166,19 @@ body{
     gap: 2rem;
 }
 
-.gallery-item{
-    background: rgba(248, 238, 218, 0.98);
-    backdrop-filter: blur(20px);
+.gallery-item {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
 
     border-radius: 25px;
     overflow: hidden;
 
-    box-shadow:
-        0 30px 60px rgba(0,0,0,0.4),
-        0 15px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 
-    border: 3px solid rgba(219, 168, 7, 0.5);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 
     transition: all 0.3s ease;
 }
@@ -205,9 +201,6 @@ body{
     border: 4px solid #dba807;
 }
 
-/* ===========================================
-   MOBILE RESPONSIVE
-=========================================== */
 @media (max-width: 768px){
 
     .hamburger{
@@ -289,22 +282,18 @@ body{
 
 }
 
-/* ===========================================
-   GALLERY INFO
-=========================================== */
-
 .gallery-info{
     padding: 1rem;
     text-align: center;
 }
 
 .gallery-info h3{
-    color: #a52a28;
+    color: #ffffff;
     font-size: 1.3rem;
     margin-bottom: 5px;
 }
 
 .gallery-info p{
-    color: #666;
+    color: #ffffff;
     font-size: 0.95rem;
 }
