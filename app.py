@@ -24,6 +24,10 @@ mysql = MySQL(app)
 def login():
     error = None
 
+    total = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    total.execute("SELECT COUNT(*) AS total FROM users")
+    total_users = total.fetchone()['total']
+
     if request.method == 'POST':
         email = request.form['email']
         password = hashlib.sha256(request.form['password'].encode()).hexdigest()
@@ -34,6 +38,8 @@ def login():
             (email, password)
         )
         user = cursor.fetchone()
+
+        
 
         if user:
             # ---------------- STORE SESSION ----------------
@@ -53,7 +59,7 @@ def login():
         else:
             error = "Invalid email or password"
 
-    return render_template('index.html', error=error)
+    return render_template('index.html', error=error, total_users=total_users)
 
 
 # ---------------- REGISTER ----------------
