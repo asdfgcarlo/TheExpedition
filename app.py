@@ -146,11 +146,12 @@ def book():
 # ---------------- FILL UP + BOOKING ----------------
 
 FLIGHTS = {
-        "MNL-HAN": 113225, 
-        "MNL-DPS": 89499, 
-        "MNL-NRT": 132780, 
-        "MNL-SIN": 64320, 
-        "MNL-MLE": 158950
+        "MNL-CEB": 5073, 
+        "MNL-BCD": 6100, 
+        "MNL-KLO": 45000, 
+        "TAG-CRK": 3500, 
+        "LAO-DRP": 9400,
+        "MNL-TAC": 3100
            }
 
 @app.route('/fillup/<flight>/<int:price>', methods=['GET', 'POST'])
