@@ -79,13 +79,37 @@ VANTA.CELLS({
             }]
         },
         options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 10
                 }
             }
         }
+    },
+    scales: {
+        x: {
+            ticks: {
+                maxRotation: 45,
+                minRotation: 45,
+                font: {
+                    size: 10
+                }
+            }
+        },
+        y: {
+            beginAtZero: true,
+            ticks: {
+                font: {
+                    size: 10
+                }
+            }
+        }
+    }
+}
     });
 
     const date = JSON.parse('{{ date | tojson | safe }}');
@@ -107,13 +131,37 @@ VANTA.CELLS({
             }]
         },
         options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 10
                 }
             }
         }
+    },
+    scales: {
+        x: {
+            ticks: {
+                maxRotation: 45,
+                minRotation: 45,
+                font: {
+                    size: 10
+                }
+            }
+        },
+        y: {
+            beginAtZero: true,
+            ticks: {
+                font: {
+                    size: 10
+                }
+            }
+        }
+    }
+}
     });
 
 
@@ -135,9 +183,37 @@ new Chart(line, {
         }]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 10
+                }
+            }
+        }
+    },
+    scales: {
+        x: {
+            ticks: {
+                maxRotation: 45,
+                minRotation: 45,
+                font: {
+                    size: 10
+                }
+            }
+        },
+        y: {
+            beginAtZero: true,
+            ticks: {
+                font: {
+                    size: 10
+                }
+            }
+        }
     }
+}
 });
 
 
