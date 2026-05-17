@@ -18,8 +18,10 @@
 
     <h1 class="title">Admin Dashboard</h1>
 
-    <div class="burger" id="burger">
-        ☰
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
     <div class="header-buttons">
         <a href="{{ url_for('analytics') }}" class="details-btn">
@@ -85,11 +87,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.cells.min.js"></script>
 
 <script>
-const burger = document.getElementById("burger");
-const navMenu = document.getElementById("navMenu");
+document.addEventListener('DOMContentLoaded', function() {
 
-burger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.header-buttons');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
 });
 
 VANTA.CELLS({

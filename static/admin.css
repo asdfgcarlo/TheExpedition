@@ -36,6 +36,26 @@ body
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
+    position: relative;
+    z-index: 10; 
+}
+
+.hamburger
+{
+    display: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.bar
+{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #f8eeda;
+    transition: all 0.3s ease;
+    border-radius: 3px;
 }
 
 .title 
@@ -177,47 +197,60 @@ tbody tr:hover
 }
 
 
-.burger
-{
-    display: none;
-    font-size: 2rem;
-    color: #f8eeda;
-    cursor: pointer;
-    z-index: 20;
-}
 
-@media (max-width: 768px) 
+
+@media (max-width: 768px)
 {
-    .stats {
+    .stats
+    {
         flex-direction: column;
         align-items: center;
     }
 
-    .card {
+    .card
+    {
         width: 100%;
         max-width: 300px;
     }
+
     .header
     {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
     }
 
-    .burger
+    /* SHOW HAMBURGER */
+    .hamburger
     {
         display: block;
-        position: absolute;
-        right: 0;
-        top: 10px;
+        cursor: pointer;
+        z-index: 20;
     }
 
+    .bar
+    {
+        width: 25px;
+        height: 3px;
+        background: #f8eeda;
+        margin: 5px 0;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+    /* MOBILE MENU */
     .header-buttons
     {
         display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
         flex-direction: column;
-        width: 100%;
-        margin-top: 20px;
+        background: rgba(134, 22, 20, 0.95);
+        padding: 15px;
+        border-radius: 10px;
+        width: 220px;
         gap: 10px;
     }
 
@@ -232,5 +265,4 @@ tbody tr:hover
         width: 100%;
         text-align: center;
     }
-    
 }

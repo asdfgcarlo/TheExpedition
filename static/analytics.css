@@ -82,16 +82,8 @@ canvas {
     height: 100% !important;
 }
 
-#vanta-bg
-{
-    position: relative;
-}
 
-.container
-{
-    position: relative;
-    z-index: 2;
-}
+
 
 
 @media (max-width: 768px) {
