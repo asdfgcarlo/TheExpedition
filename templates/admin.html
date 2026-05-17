@@ -18,6 +18,9 @@
 
     <h1 class="title">Admin Dashboard</h1>
 
+    <div class="burger" id="burger">
+        ☰
+    </div>
     <div class="header-buttons">
         <a href="{{ url_for('analytics') }}" class="details-btn">
         Analytics
@@ -82,6 +85,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.cells.min.js"></script>
 
 <script>
+const burger = document.getElementById("burger");
+const navMenu = document.getElementById("navMenu");
+
+burger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
 VANTA.CELLS({
   el: "#vanta-bg",
   mouseControls: true,

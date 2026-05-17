@@ -35,7 +35,6 @@ body {
 .graph {
     width: 100%;
     padding: 20px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +43,6 @@ body {
 .left-charts {
     width: 100%;
     max-width: 900px;
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto;
@@ -59,10 +57,8 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-
     height: 250px;
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,15 +66,12 @@ body {
 
 .chart-container3 {
     grid-column: 1 / 3;
-
     background: #dba807;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-
     height: 300px;
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,6 +80,17 @@ body {
 canvas {
     width: 100% !important;
     height: 100% !important;
+}
+
+#vanta-bg
+{
+    position: relative;
+}
+
+.container
+{
+    position: relative;
+    z-index: 2;
 }
 
 

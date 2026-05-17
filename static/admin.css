@@ -13,6 +13,17 @@ body
     padding: 40px 20px;
 }
 
+#vanta-bg
+{
+    position: relative;
+}
+
+.container
+{
+    position: relative;
+    z-index: 2;
+}
+
 .container 
 {
     max-width: 1100px;
@@ -159,6 +170,21 @@ tbody tr:hover
 {
     background: #fff3c4;
 }
+.header
+{
+    position: relative;
+    z-index: 10;
+}
+
+
+.burger
+{
+    display: none;
+    font-size: 2rem;
+    color: #f8eeda;
+    cursor: pointer;
+    z-index: 20;
+}
 
 @media (max-width: 768px) 
 {
@@ -171,4 +197,40 @@ tbody tr:hover
         width: 100%;
         max-width: 300px;
     }
+    .header
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .burger
+    {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
+
+    .header-buttons
+    {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    .header-buttons.active
+    {
+        display: flex;
+    }
+
+    .details-btn,
+    .logout-btn
+    {
+        width: 100%;
+        text-align: center;
+    }
+    
 }
