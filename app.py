@@ -256,6 +256,83 @@ def booking_details():
 
     return render_template('booking_details.html', bookings=bookings)
 
+@app.route('/analytics')
+def analytics():
+
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    income_p_day = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+
+    # price
+    cursor.execute('SELECT price AS revenue FROM bookings')
+    revenue = cursor.fetchone()['revenue']
+
+    # Fetch chart data from database
+    cursor.execute('''
+        SELECT DATE(created_at) AS date,
+               COUNT(*) AS total
+        FROM bookings
+        GROUP BY DATE(created_at)
+        ORDER BY DATE(created_at)
+    ''')
+
+    chart_data = cursor.fetchall()
+
+    labels = []
+    revenue = []
+
+    for row in chart_data:
+        labels.append(str(row['date']))
+        revenue.append(row['total'])
+
+    # bar chart
+
+    income_p_day.execute('''
+        SELECT DATE(created_at) AS date,
+               SUM(price) AS income
+        FROM bookings
+        GROUP BY DATE(created_at)
+        ORDER BY DATE(created_at)
+    ''')
+    
+    bar = income_p_day.fetchall()
+    # for bar
+    date = []
+    income = []
+
+    for row in bar:
+        date.append(str(row['date']))
+        income.append(row['income'])
+
+
+    area = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    area.execute(
+        '''
+        SELECT DAY(created_at) AS day, 
+        SUM(pax) AS PAX
+        FROM bookings
+        GROUP BY DATE(created_at)
+        ORDER BY day
+            '''
+    )
+
+    line = area.fetchall()
+    day = []
+    pax = []
+
+    for row in line:
+        day.append(str(row['day']))
+        pax.append(row['PAX'])
+    
+    return render_template(
+        'analytics.html',
+        labels=labels,
+        revenue=revenue,
+        date=date,
+        income=income,
+        day=day,
+        pax=pax
+    )
+
 @app.route('/attraction')
 def attraction():
     return render_template('attraction.html')

@@ -45,7 +45,7 @@
                 <td>
                     {% if b.status == 'CONFIRMED' %}
                         <span style="color:green; font-weight:bold;">{{ b.status }}</span>
-                    {% elif b.status == 'pending' %}
+                    {% elif b.status == 'PENDING' %}
                         <span style="color:orange; font-weight:bold;">{{ b.status }}</span>
                     {% else %}
                         <span style="color:red; font-weight:bold;">{{ b.status }}</span>

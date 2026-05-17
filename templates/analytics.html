@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='analytics.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Analytics - The Expedition</title>
+</head>
+<body id="vanta-bg">
+<div class="top-bar">
+    <a href="{{ url_for('admin') }}" class="back-btn">
+        ⬅ Admin Dashboard
+    </a>
+</div>
+
+<div class="graph">
+
+    <div class="left-charts">
+
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="chart-container2">
+            <canvas id="myChart2"></canvas>
+        </div>
+
+        <div class="chart-container3">
+            <canvas id="areaChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.cells.min.js"></script>
+
+<script>
+VANTA.CELLS({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200,
+  minWidth: 200,
+  scale: 1,
+  color1: 0xa52a28,
+  color2: 0xbc8032,
+  size: 5.00
+})
+
+    function getRandomColor(alpha = 1) {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+    const labels = JSON.parse('{{ labels | tojson | safe }}');
+    const dataValues = JSON.parse('{{ revenue | tojson | safe }}');
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'BOOK PER DAY',
+                data: dataValues,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const date = JSON.parse('{{ date | tojson | safe }}');
+    const income = JSON.parse('{{ income | tojson | safe }}');
+
+    const for_bar = document.getElementById('myChart2').getContext('2d');
+
+    new Chart(for_bar, {
+        type: 'bar',
+        data: {
+            labels: date,
+            datasets: [{
+                label: 'INCOME PER DAY',
+                data: income,
+                borderWidth: 1,
+                backgroundColor: labels.map(() => getRandomColor(0.5)),
+                borderColor: labels.map(() => getRandomColor(1)),
+
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    const day = JSON.parse('{{ day | tojson | safe }}');
+    const pax = JSON.parse('{{ pax | tojson | safe }}');
+    const line = document.getElementById('areaChart');
+
+new Chart(line, {
+    type: 'line',
+    data: {
+        labels: day,
+        datasets: [{
+            label: 'INCOME PER PAX',
+            data: pax,
+            fill: true,
+            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+            borderColor: 'rgba(0, 0, 0, 0.8)',
+            tension: 0.4
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
+
+
+</script>
+
+</body>
+</html>
