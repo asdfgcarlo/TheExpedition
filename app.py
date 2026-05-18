@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, flash
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import hashlib
@@ -57,7 +57,7 @@ def login():
                 return redirect(url_for('dashboard'))
 
         else:
-            error = "Invalid email or password"
+            flash("Invalid email or password")
 
     return render_template('index.html', error=error, total_users=total_users)
 
@@ -68,16 +68,21 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
-        password = hashlib.sha256(request.form['password'].encode()).hexdigest()
+        password = request.form['password']
+        hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
-        cursor = mysql.connection.cursor()
-        cursor.execute(
-            "INSERT INTO users (username, email, password, role) VALUES (%s,%s,%s,%s)",
-            (username, email, password, "user")
-        )
-        mysql.connection.commit()
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM users WHERE email=%s", (email,))
+        account = cursor.fetchone()
 
-        return redirect(url_for('login'))
+        if account:
+            flash("Email already exists!", "error")
+        else:
+            cursor.execute(
+            "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",(username, email, hashed_password))
+            mysql.connection.commit()
+            flash("Registration successful!", "success")
+        return redirect(url_for('register'))
 
     return render_template('register.html')
 
@@ -170,6 +175,7 @@ def fillup(flight, price):
     if request.method == 'POST':
         contact = request.form['contact']
         pax = int(request.form['pax'])
+        payment = request.form['payment']
         total = pax * price
 
         booking_ref = "PH" + str(random.randint(100000, 999999))
@@ -177,14 +183,15 @@ def fillup(flight, price):
         cursor = mysql.connection.cursor()
         cursor.execute("""
             INSERT INTO bookings 
-            (user_id, flight, contact, pax, price, total, booking_ref)
-            VALUES (%s,%s,%s,%s,%s,%s,%s)
+            (user_id, flight, contact, pax, price, payment_type, total, booking_ref)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
         """, (
             session['user_id'],
             flight,
             contact,
             pax,
             price,
+            payment,
             total,
             booking_ref
         ))

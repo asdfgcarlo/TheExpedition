@@ -14,34 +14,21 @@
         ⬅ Admin Dashboard
     </a>
 </div>
-
 <div class="graph">
-
     <div class="left-charts">
-
         <div class="chart-container">
             <canvas id="myChart"></canvas>
         </div>
-
         <div class="chart-container2">
             <canvas id="myChart2"></canvas>
         </div>
-
         <div class="chart-container3">
             <canvas id="areaChart"></canvas>
         </div>
-
     </div>
-
 </div>
-
-
-
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.cells.min.js"></script>
-
 <script>
 VANTA.CELLS({
   el: "#vanta-bg",
@@ -172,10 +159,10 @@ VANTA.CELLS({
 new Chart(line, {
     type: 'line',
     data: {
-        labels: day,
+        labels: pax,
         datasets: [{
-            label: 'INCOME PER PAX',
-            data: pax,
+            label: 'DAYS WITH MOST BOOKINGS',
+            data: day,
             fill: true,
             backgroundColor: 'rgba(255, 255, 255, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
@@ -216,8 +203,6 @@ new Chart(line, {
 }
 });
 
-
 </script>
-
 </body>
 </html>

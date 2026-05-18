@@ -6,6 +6,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -18,7 +19,21 @@
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <p id="flash" class="{{ category }}">
+                            {% if category == "success" %}
+                        <i class="fa-solid fa-circle-check"></i>
+                            {% elif category == "error" %}
+                        <i class="fa-solid fa-circle-xmark"></i>
+                            {% endif %}
+                        {{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <button type="submit">Create Account</button>
+            
         </form>
 
         <p>Already have an account? <a href="/">Login</a></p>

@@ -197,7 +197,12 @@ label {
     margin-bottom: 0.4rem;
 }
 
-input {
+select
+{
+    font-weight: bold;
+}
+
+input, select {
     width: 100%;
     padding: 0.9rem;
     border: 2px solid rgba(219, 168, 7, 0.5);
@@ -206,7 +211,7 @@ input {
     background: rgba(255,255,255,0.9);
 }
 
-input:focus {
+input, select:focus {
     border-color: #dba807;
     box-shadow: 0 0 0 3px rgba(219,168,7,0.3);
 }

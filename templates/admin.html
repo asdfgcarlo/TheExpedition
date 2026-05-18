@@ -6,18 +6,11 @@
     <title>Admin - The Expedition</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
-
 </head>
-
 <body id="vanta-bg">
-
-
 <div class="container">
-
 <div class="header">
-
     <h1 class="title">Admin Dashboard</h1>
-
     <div class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -27,17 +20,13 @@
         <a href="{{ url_for('analytics') }}" class="details-btn">
         Analytics
         </a>
-
         <a href="{{ url_for('booking_details') }}" class="details-btn">
             Booking Details
         </a>
-
         <a href="{{ url_for('logout') }}" class="logout-btn">
             Logout
         </a>
-
     </div>
-
 </div>
 
     <div class="stats">
@@ -56,7 +45,6 @@
             <p>₱ {{ total_income }}</p>
         </div>
     </div>
-
     <div class="table-container">
         <table>
             <thead>
@@ -67,7 +55,6 @@
                     <th>Role</th>
                 </tr>
             </thead>
-
             <tbody>
                 {% for u in users %}
                 <tr>
@@ -83,20 +70,15 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.cells.min.js"></script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-    const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.header-buttons');
-
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
-
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');

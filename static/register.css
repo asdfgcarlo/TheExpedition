@@ -33,6 +33,17 @@ body {
     align-items: center;
     padding: 20px;
 }
+
+.success
+{
+    color: green;;
+}
+
+.error
+{
+    color: red;
+}
+
 #vanta-bg 
 {
     position: fixed;
@@ -82,11 +93,23 @@ form {
 
 
 input[type="email"],
-input[type="password"],
 input[type="text"] {
     width: 100%;
     padding: 1rem 1.2rem;
     margin-bottom: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="password"]
+{
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-bottom: .8rem;
     border: 2px solid transparent;
     border-radius: 12px;
     font-size: 1rem;
@@ -143,7 +166,6 @@ p a:hover {
     text-shadow: 0 0 8px rgba(248, 238, 218, 0.8);
 }
 
-/* Responsive */
 @media (max-width: 480px) {
     body {
         padding: 15px;

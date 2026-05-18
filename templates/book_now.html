@@ -6,7 +6,6 @@
     <title>Book Now - The Expedition</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='book_now.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
-
 </head>
 <body>
     <nav class="navbar">
@@ -29,72 +28,42 @@
             </div>
         </div>
     </nav>
-
 <div class="container">
     <h2>Available Trip</h2>
-    
     <div class="booking-grid">
-
     <!-- TOUR PACKAGE 1 -->
     <div class="booking-card">
         <div class="flight-icon">✈️</div>
-
         <h3>Cebu Adventure<br><span>MNL ↔ CEB</span></h3>
-
         <div class="price">₱5,073</div>
-
-        <a href="{{ url_for('fillup', flight='MNL-CEB', price=flights['MNL-CEB']) }}" class="book-btn">
-    BOOK NOW
-</a>
+        <a href="{{ url_for('fillup', flight='MNL-CEB', price=flights['MNL-CEB']) }}" class="book-btn">BOOK NOW</a>
     </div>
-
     <!-- TOUR PACKAGE 2 -->
     <div class="booking-card">
         <div class="flight-icon">🏝️</div>
-
         <h3>Bacolod Adventure<br><span>MNL ↔ BCD</span></h3>
-
         <div class="price">₱6,100</div>
-
-        <a href="{{ url_for('fillup', flight='MNL-BCD', price=flights['MNL-BCD']) }}" class="book-btn">
-    BOOK NOW
-</a>
+        <a href="{{ url_for('fillup', flight='MNL-BCD', price=flights['MNL-BCD']) }}" class="book-btn">BOOK NOW</a>
     </div>
-
     <!-- TOUR PACKAGE 3 -->
     <div class="booking-card">
         <div class="flight-icon">🌊</div>
-
         <h3>Kalibo Adventure<br><span>MNL ↔ KLO</span></h3>
-
         <div class="price">₱45,000</div>
-
-        <a href="{{ url_for('fillup', flight='MNL-KLO', price=flights['MNL-KLO']) }}" class="book-btn">
-    BOOK NOW
-</a>
+        <a href="{{ url_for('fillup', flight='MNL-KLO', price=flights['MNL-KLO']) }}" class="book-btn">BOOK NOW</a>
     </div>
-
     <!-- TOUR PACKAGE 4 -->
     <div class="booking-card">
         <div class="flight-icon">｡ﾟ☁︎｡</div>
-
         <h3>Clark Adventure<br><span>TAG ↔ CRK</span></h3>
-
         <div class="price">₱3,500</div>
-
-        <a href="{{ url_for('fillup', flight='TAG-CRK', price=flights['TAG-CRK']) }}" class="book-btn">
-    BOOK NOW
-</a>
+        <a href="{{ url_for('fillup', flight='TAG-CRK', price=flights['TAG-CRK']) }}" class="book-btn">BOOK NOW</a>
     </div>
-
     <!-- TOUR PACKAGE 5 -->
     <div class="booking-card">
         <div class="flight-icon">⛰️</div>
-
         <h3>Daraga Adventure<br><span>LAO ↔ DRP</span></h3>
-
         <div class="price">₱9,400</div>
-
         <a href="{{ url_for('fillup', flight='LAO-DRP', price=flights['LAO-DRP']) }}" class="book-btn">
     BOOK NOW
 </a>
@@ -102,20 +71,13 @@
     <!-- TOUR PACKAGE 6 -->
     <div class="booking-card">
         <div class="flight-icon">🌊</div>
-
         <h3>Tacloban Adventure<br><span>MNL ↔ TAC</span></h3>
-
         <div class="price">₱3,100</div>
-
-        <a href="{{ url_for('fillup', flight='MNL-TAC', price=flights['MNL-TAC']) }}" class="book-btn">
-    BOOK NOW
-</a>
+        <a href="{{ url_for('fillup', flight='MNL-TAC', price=flights['MNL-TAC']) }}" class="book-btn">BOOK NOW</a>
     </div>
 
 </div>
-    
 </div>
-
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.querySelector('.hamburger');
@@ -125,7 +87,6 @@
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
         });
-        
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
