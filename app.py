@@ -104,7 +104,7 @@ def admin():
 
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-    # ---------------- GET USER FROM DB (SECURE ROLE CHECK) ----------------
+    # ---------------- GET USER FROM DB ----------------
     cursor.execute("SELECT * FROM users WHERE id=%s", (session['user_id'],))
     user = cursor.fetchone()
 
@@ -273,7 +273,7 @@ def analytics():
     cursor.execute('SELECT price AS revenue FROM bookings')
     revenue = cursor.fetchone()['revenue']
 
-    # Fetch chart data from database
+    # fetch chart data from database
     cursor.execute('''
         SELECT DATE(created_at) AS date,
                COUNT(*) AS total
@@ -295,7 +295,7 @@ def analytics():
 
     income_p_day.execute('''
         SELECT DATE(created_at) AS date,
-               SUM(price) AS income
+               SUM(total) AS income
         FROM bookings
         GROUP BY DATE(created_at)
         ORDER BY DATE(created_at)
