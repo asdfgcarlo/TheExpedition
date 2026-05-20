@@ -25,6 +25,7 @@
                 <th>Pax</th>
                 <th>Price</th>
                 <th>Total</th>
+                <th>Payment</th>
                 <th>Ticket ID</th>
                 <th>Status</th>
                 <th>Date & Time</th>
@@ -40,6 +41,7 @@
                 <td>{{ b.pax }}</td>
                 <td>₱ {{ b.price }}</td>
                 <td>₱ {{ b.total }}</td>
+                <td>{{ b.payment_type }}</td>
                 <td>{{ b.booking_ref }}</td>
                 <td>
                     {% if b.status == 'CONFIRMED' %}

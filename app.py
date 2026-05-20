@@ -311,24 +311,18 @@ def analytics():
         income.append(row['income'])
 
 
-    area = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    area.execute(
-        '''
-        SELECT DAY(created_at) AS day, 
-        SUM(pax) AS PAX
-        FROM bookings
-        GROUP BY DATE(created_at)
-        ORDER BY day
-            '''
+    doughtnut = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    doughtnut.execute(
+        'SELECT payment_type as mop, COUNT(payment_type) as count FROM bookings GROUP BY payment_type'
     )
 
-    line = area.fetchall()
-    day = []
-    pax = []
+    doughtnut = doughtnut.fetchall()
+    mop_label = []
+    mop_data = []
 
-    for row in line:
-        day.append(str(row['day']))
-        pax.append(row['PAX'])
+    for row in doughtnut:
+        mop_label.append(str(row['mop']))
+        mop_data.append(row['count'])
     
     return render_template(
         'analytics.html',
@@ -336,8 +330,8 @@ def analytics():
         revenue=revenue,
         date=date,
         income=income,
-        day=day,
-        pax=pax
+        mop_label=mop_label,
+        mop_data=mop_data
     )
 
 @app.route('/attraction')
