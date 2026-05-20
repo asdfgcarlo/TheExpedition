@@ -23,10 +23,6 @@ mysql = MySQL(app)
 @app.route('/', methods=['GET', 'POST'])
 def login():
 
-    total = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    total.execute("SELECT COUNT(*) AS total FROM users")
-    total_users = total.fetchone()['total']
-
     if request.method == 'POST':
         email = request.form['email']
         password = hashlib.sha256(request.form['password'].encode()).hexdigest()
