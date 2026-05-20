@@ -22,7 +22,6 @@ mysql = MySQL(app)
 # ---------------- LOGIN ----------------
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    error = None
 
     total = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     total.execute("SELECT COUNT(*) AS total FROM users")

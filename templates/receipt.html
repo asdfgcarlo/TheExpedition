@@ -5,33 +5,19 @@
     <title>Flight Receipt</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='receipt.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='The_Expedition.ico') }}">
-
 </head>
-
 <body>
-
 <div class="ticket">
-
     <h2>✈ Flight Ticket Receipt</h2>
-
     <div class="ticket-box">
-
         <p><strong>Ticket No:</strong> {{ data.booking_ref }}</p>
-
         <p><strong>Flight:</strong> {{ data.flight }}</p>
-
         <p><strong>Customer:</strong> {{ data.contact }}</p>
-
         <p><strong>Passenger/s:</strong> {{ data.pax }}</p>
-
         <p><strong>Price per pax:</strong> ₱{{ data.price }}</p>
-
         <p><strong>Payment Method:</strong> {{ data.payment_type }}</p>
-
         <p><strong>Total:</strong> ₱{{ data.total }}</p>
-
         <p><strong>Status:</strong> {{ data.status }}</p>
-
         <p><strong>Date:</strong> {{ data.created_at }}</p>
         <a href="/dashboard">Continue</a>
     </div>
