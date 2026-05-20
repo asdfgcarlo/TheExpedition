@@ -54,7 +54,7 @@ def login():
         else:
             flash("Invalid email or password")
 
-    return render_template('index.html', error=error, total_users=total_users)
+    return render_template('index.html')
 
 
 # ---------------- REGISTER ----------------
