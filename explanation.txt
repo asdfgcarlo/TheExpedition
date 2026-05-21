@@ -1,0 +1,41 @@
+In our first line, we have the program that imports Flask modules for web development, MySQL libraries for database connectivity, and Python built-in modules for hashing and random number 
+generation. We also have secret_key; the primary purpose of this line is to prevent tampering and forgery of data.
+
+From lines 14 to 19, we have our database configuration. Then from lines 23–57, we have our home page or root URL of the website, and inside this route we have a function named login 
+and some conditions for the users. If the user is true, there’s another condition: if the user is an admin, it will go to the admin dashboard; otherwise, it will go to the user dashboard. 
+We also have validation for this function that if the password does not match the database, it will flash an error "Invalid email or password" and return index.html.
+
+For our next route, we have register and also a function for register. This is the same as in the login route, and we also put validation for this. If the email is already used, 
+it says "Email already exists!", "error". The error is a category that tells Flask what type of message this is; otherwise, the inputted data will be inserted into the database. 
+For our dashboard route, it is short because we only get the username of the user, and it will display a short greeting in the dashboard.
+
+For our admin route, we have many queries for the admin dashboard. In the admin dashboard, we get all the data from the users table, count how many users we have, count all bookings to 
+see how many bookings we have, and lastly, we get the sum to see how much we earned.
+
+For our next route, we have book and function book; we only render the template of book_now.html and the flight prices for every flight.
+
+
+
+
+
+For the fillup route, we used this: @app.route('/fillup/<flight>/<int:price>', methods=['GET', 'POST']). The /fillup is our base URL, <flight> is a dynamic string parameter, and <int:price> 
+is a dynamic integer parameter. Then our /fillup route will request the contact person, pax, mode of payment, and the total is multiplied by pax. We also put a booking_ref for displaying 
+the ticket number. We used "PH" as a fixed prefix, and it generates a random 6-digit number, for example (PH123456), then connects to the database to insert the inputted data.
+
+For our receipt route, we have a session for booking_ref and a connection for the database that selects all from the bookings table. Then if you click book, it will pass the data from the fillup route to the receipt route.
+
+For the about and contact routes, we only render a template.
+
+
+
+
+
+For logout, what we did is redirect and clear all sessions.
+
+For our booking_details route, this is in the admin dashboard. We have a database connection and a query that gets all the data from bookings and orders it by date.
+
+For the analytics route, we have 3 database connections but with different variable names. For the first cursor, we get the price from bookings. For the 2nd cursor, we select the created_at(date) 
+and count all from bookings, then it fetches the data for the line graph, same with the bar graph. Lastly, for the doughnut graph, we have a query that selects the payment type as mop, and counts 
+the payment type as count from bookings grouped by payment_type, and it fetches the data in the graph.
+
+For our last route named /attraction, we only render the template of attraction.html.
